@@ -1,0 +1,8 @@
+FROM debian:bookworm-slim
+
+# Install Java
+RUN apt-get update && apt-get install -y openjdk-17-jdk && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY main.jar .
+ENTRYPOINT ["java", "-jar", "main.jar"]
